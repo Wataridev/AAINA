@@ -1,19 +1,25 @@
+/* eslint-disable no-undef */
 import express from "express";
 import Product from "../models/Product.js";
-
+import dotenv from 'dotenv';
 import multer from 'multer';
 import {v2 as cloudinary} from 'cloudinary';
 import fs from 'fs';
+dotenv.config();
 const upload=multer({dest:'products/'});
 const router=express.Router();
+
+const cloud_name= process.env.cloud_name;
+const api_key=process.env.cloud_api_key;
+ const api_secret=process.env.cloud_api_secret;
 
 
 
 
 cloudinary.config({
-   cloud_name: 'dmkbc3xyh', 
-   api_key: '152686985553948', 
-   api_secret: '7EL-Jq3TPUaIDru8EDJbANHXOsU'
+   cloud_name:cloud_name,
+   api_key:api_key,
+   api_secret:api_secret
  });
  
 
